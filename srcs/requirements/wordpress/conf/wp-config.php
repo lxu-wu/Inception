@@ -4,10 +4,10 @@
  *
  * Ce fichier est utilisé par le script de création de wp-config.php pendant
  * le processus d’installation. Vous n’avez pas à utiliser le site web, vous
- * pouvez simplement renommer ce fichier en « wp-config.php » et remplir les
+ * pouvez simplement renommer ce fichier en « wp-config.php » et remplir les
  * valeurs.
  *
- * Ce fichier contient les réglages de configuration suivants :
+ * Ce fichier contient les réglages de configuration suivants :
  *
  * Réglages MySQL
  * Préfixe de table
@@ -22,16 +22,16 @@
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
-define( 'DB_NAME', 'votre_nom_de_bdd' );
+define( 'DB_NAME', getenv('MARIADB_DB') );
 
 /** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'votre_utilisateur_de_bdd' );
+define( 'DB_USER', getenv('MARIADB_USER') );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'votre_mdp_de_bdd' );
+define( 'DB_PASSWORD', getenv('MARIADB_PWD') );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', getenv('MARIADB_HOST') );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -53,14 +53,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'mettez une phrase unique ici' );
-define( 'SECURE_AUTH_KEY',  'mettez une phrase unique ici' );
-define( 'LOGGED_IN_KEY',    'mettez une phrase unique ici' );
-define( 'NONCE_KEY',        'mettez une phrase unique ici' );
-define( 'AUTH_SALT',        'mettez une phrase unique ici' );
-define( 'SECURE_AUTH_SALT', 'mettez une phrase unique ici' );
-define( 'LOGGED_IN_SALT',   'mettez une phrase unique ici' );
-define( 'NONCE_SALT',       'mettez une phrase unique ici' );
+define('AUTH_KEY',         'g8jU1UG|-z_T;PL;Dj>[MRM lhUz,$*hyMZTf@6J@7LE551[$kg[:z9Pi,PZ]+lq');
+define('SECURE_AUTH_KEY',  'QRx+e3F56?ul3< czuBv&d<_%|T-%=QvkO,n_4b~:*SU_*+$dcucZ.B%J1Yu<j`D');
+define('LOGGED_IN_KEY',    ';Ge6Eb[oV vDQ$#%jHB-9%*=U+Lb1>ciSJ:Q5@DGLq>%t]M#Mh8kMV{~S)nD2FKN');
+define('NONCE_KEY',        '.f^@7nN[,K/KP F_Jd-bl`?PsOmcr0{*8bNmdXaMS]Mfpc<5)]%)>_r86jm:Xs!=');
+define('AUTH_SALT',        '{y9M{-[-!`muu^nG*I~mq@rkS%Mou@{>sh}K)dMjTLRUyppp[zX!Y<ljUIVXRca+');
+define('SECURE_AUTH_SALT', 'k~vw+=+ 0L@)DD<sXy.4%+nvc_*p(o%m1+X%;zbQD/Tx>YHo_;W(<>V68b#P57g`');
+define('LOGGED_IN_SALT',   '[Jk-/SYHm5LmR9@nYsNc:[~6(JV%TrykF5zkt[kabUFEtPm@;l)-R0]Zu*:F`pL.');
+define('NONCE_SALT',       't0$kB{MZ0I-,8Dv4G{KmVmI|.)`V]cH<{Apq$uC-y7J+Jp1-+maNi9/5gkTA|}#;');
 /**#@-*/
 
 /**
@@ -68,7 +68,7 @@ define( 'NONCE_SALT',       'mettez une phrase unique ici' );
  *
  * Vous pouvez installer plusieurs WordPress sur une seule base de données
  * si vous leur donnez chacune un préfixe unique.
- * N’utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés !
+ * N’utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés !
  */
 $table_prefix = 'wp_';
 
