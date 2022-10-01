@@ -25,6 +25,6 @@ if [ ! -f "wp-config.php" ]; then
 
 	wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD
 
-	wp post generate --count=5 --post_title="test"
+	wp post generate --count=5 --post_title="post"
 fi
 php-fpm7 --nodaemonize
