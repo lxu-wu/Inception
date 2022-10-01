@@ -1,4 +1,6 @@
 FROM	alpine:3.14
+
+#tout mettre a jour
 RUN		apk update
 RUN		apk add --no-cache --quiet --update mariadb mariadb-client vim
 

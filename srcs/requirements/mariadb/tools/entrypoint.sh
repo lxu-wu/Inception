@@ -1,23 +1,23 @@
-#check if the file setup exist
+# check si le .setup exist
 cat .setup 2> /dev/null
 
-if [ $? -ne 0 ]; then
-	#define the dir and exec mysqld_safe
+if [ $? -ne 0 ]; then # si setup existe pas
+	#define direct et exec mysqld_safe
 	usr/bin/mysqld_safe --datadir=/var/lib/mysql &
 
-	#wait the server myslq is up
+	#att que le serv soit pret
 	while ! mysqladmin ping -h "$MARIADB_HOST" --silent; do
     	sleep 1
 	done
 
-	#exec the script sql in mariadb
+	#exec le script sql dans mariadb
 	eval "echo \"$(cat /tmp/create_db.sql)\"" | mariadb
 
-	#create the file setup
+	#cree le fichier
 	touch .setup
 fi
 
-#define the dir and exec mysqld_safe
+#define direct et exec mysqld_safe
 usr/bin/mysqld_safe --datadir=/var/lib/mysql
 
 #Correction

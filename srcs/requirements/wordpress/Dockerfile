@@ -14,6 +14,7 @@ RUN		wp core download --path=/var/www/wordpress
 
 WORKDIR /var/www/wordpress
 
+#          le mien              docker
 COPY	./conf/wp-config.php /config/wp-config
 COPY	./tools/entrypoint.sh /tmp/entrypoint.sh
 

@@ -1,11 +1,11 @@
-#Put the file dir in a var
+#comme ca on recrit pas plusieur fois
 target="/etc/php7/php-fpm.d/www.conf"
 
-#Check if config is done
+#si config deja fait
 grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 
-	#make config
+	#fait la config
 	sed -i "s|.*listen = 127.0.0.1.*|listen = 9000|g" $target
 	echo "env[MARIADB_HOST] = \$MARIADB_HOST" >> $target
 	echo "env[MARIADB_USER] = \$MARIADB_USER" >> $target
@@ -13,7 +13,7 @@ if [ $? -eq 0 ]; then
 	echo "env[MARIADB_DB] = \$MARIADB_DB" >> $target
 fi
 
-#check if the file is here
+#regard si au ok endroit
 if [ ! -f "wp-config.php" ]; then
 	cp /config/wp-config ./wp-config.php
 	
@@ -24,5 +24,7 @@ if [ ! -f "wp-config.php" ]; then
 	wp plugin update --all
 
 	wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD
+
+	wp post generate --count=5 --post_title="test"
 fi
 php-fpm7 --nodaemonize
